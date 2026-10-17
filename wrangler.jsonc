@@ -1,7 +1,13 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "lingxiao-portfolio",
+  "name": "lingxiao-course-portfolio",
   "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-10-01",
-  "d1_databases": [{"binding":"DB", "database_name":"lingxiao-portfolio", "database_id":"REPLACE_WITH_CREATED_D1_DATABASE_ID"}]
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "lingxiao-portfolio",
+      "database_id": "fb62475d-981b-49ca-849b-22ca767acd1c"
+    }
+  ]
 }

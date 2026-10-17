@@ -2,6 +2,18 @@
 
 同一份 React 源代码提供两个交付：考核三 GitHub Pages 静态官网；考核四 Cloudflare Pages＋D1 持久化个人网站。
 
+## 已发布网址（2026-10-17 已核验）
+
+- 考核三 · GitHub Pages 静态官网：https://lingxiao001.github.io/lingxiao-course-portfolio/
+- 考核四 · Cloudflare Pages 动态官网：https://lingxiao-course-portfolio.pages.dev/
+- 内容管理入口：https://lingxiao-course-portfolio.pages.dev/#admin
+- 完整源代码：https://github.com/lingxiao001/lingxiao-course-portfolio
+- 阅读器 v2.0.0 发布页：https://github.com/lingxiao001/lingxiao-course-portfolio/releases/tag/reader-v2.0.0
+
+生产环境已连接 D1 数据库 `lingxiao-portfolio`，绑定名 `DB`；公开接口实际返回 1 份个人资料和 5 个作品。独立未登录请求不能修改资料（HTTP 401）。具体配置与验收记录见 `DEPLOYMENT.md` 和 `verification-production.json`。
+
+管理员凭据仅在本机交付：本目录 `.local-admin.secret` 保存管理员密码，`.dev.vars` 保存加盐哈希。两者均已忽略版本控制，不打包到公开源码、不放入截图。生产环境只使用 `ADMIN_PASSWORD_HASH` 密钥。
+
 ## 本地运行
 
 ```sh

@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-17T14:21:09.526Z",
+  "timezone": "Asia/Shanghai",
+  "base": "https://lingxiao-course-portfolio.pages.dev",
+  "checks": [
+    {"method":"GET","path":"/","status":200,"title":"Lingxiao — 个人作品与学习记录"},
+    {"method":"GET","path":"/api/profile","status":200,"cacheControl":"no-store","profileName":"Lingxiao","projectCount":5},
+    {"method":"GET","path":"/api/auth/session","status":200,"authenticated":false},
+    {"method":"PUT","path":"/api/admin/profile","session":"none","body":{},"origin":"same-origin","status":401,"response":{"error":"请先登录"},"mutationPerformed":false}
+  ],
+  "publicLinks": [
+    {"url":"https://lingxiao001.github.io/lingxiao-course-portfolio/","status":200},
+    {"url":"https://github.com/lingxiao001/lingxiao-course-portfolio","status":200},
+    {"url":"https://github.com/lingxiao001/lingxiao-course-portfolio/releases/tag/reader-v2.0.0","status":200},
+    {"url":"https://lingxiao-study-workspace.pages.dev/","status":200},
+    {"url":"https://lingxiao-focus-room.pages.dev/","status":200},
+    {"url":"https://lingxiao-grade-planner.pages.dev/","status":200}
+  ],
+  "note":"Independent HTTP checks; no production credentials, cookies, or database writes. Browser admin-edit verification is recorded separately by the parent task."
+}
