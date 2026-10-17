@@ -1,0 +1,13 @@
+
+> lingxiao-portfolio@1.0.0 build
+> vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 1579 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.57 kB │ gzip:  0.43 kB
+dist/assets/index-4VYrEfsj.css   21.72 kB │ gzip:  5.55 kB
+dist/assets/index-C2LWYJ7l.js   248.63 kB │ gzip: 78.30 kB
+✓ built in 703ms

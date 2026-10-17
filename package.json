@@ -1,0 +1,28 @@
+{
+  "name": "lingxiao-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4174",
+    "build": "vite build",
+    "build:static": "VITE_STATIC_MODE=true vite build --outDir dist-static",
+    "preview": "vite preview --host 127.0.0.1 --port 4174",
+    "test": "node --test tests/*.test.js",
+    "dev:cloudflare": "wrangler pages dev dist --port 8788",
+    "password:hash": "node scripts/hash-password.mjs"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "lucide-react": "^0.468.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.12",
+    "@vitejs/plugin-react": "^5.0.4",
+    "wrangler": "^4.42.0"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

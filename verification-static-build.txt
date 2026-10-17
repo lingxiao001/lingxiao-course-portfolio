@@ -1,0 +1,13 @@
+
+> lingxiao-portfolio@1.0.0 build:static
+> VITE_STATIC_MODE=true vite build --outDir dist-static
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 1579 modules transformed.
+rendering chunks...
+computing gzip size...
+dist-static/index.html                   0.57 kB │ gzip:  0.42 kB
+dist-static/assets/index-4VYrEfsj.css   21.72 kB │ gzip:  5.55 kB
+dist-static/assets/index-BJMFaQLz.js   239.39 kB │ gzip: 75.41 kB
+✓ built in 638ms

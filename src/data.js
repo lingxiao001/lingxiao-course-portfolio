@@ -1,0 +1,13 @@
+export const initialProfile = {
+  name: 'Lingxiao', eyebrow: '个人作品与学习记录', headline: '把想法，\n做成可以使用的作品。',
+  intro: '这里记录我的 AI 编程学习与项目实践。从一个小小的需求出发，在构建、测试和迭代中，把想法慢慢变成现实。',
+  about: '我用这个网站整理课程中的实践项目，也保存每一次从问题到解决方案的过程。关注网页开发、AI 工具和数字阅读，让学习留下可以打开、可以体验的成果。',
+  github: 'https://github.com/lingxiao001', focus: 'AI 编程 · 网页开发 · 数字阅读', location: '持续学习，持续构建'
+};
+export const initialProjects = [
+  {id:'web-tool', title:'课间 · 学习文本工作台', category:'WEB APPLICATION', description:'整理课堂笔记、提取关键词与重点句，让学习文本更容易回顾。', tags:['React', '关键词提取', '文本整理'], url:'https://lingxiao-study-workspace.pages.dev', featured:true, theme:'mint'},
+  {id:'reader', title:'拾页 · 桌面阅读器', category:'DESKTOP APPLICATION', description:'为安静阅读而设计。导入 TXT 与 EPUB，通过目录自由切换章节。', tags:['桌面应用', 'TXT / EPUB', '阅读体验'], url:'https://github.com/lingxiao001/lingxiao-course-portfolio/releases/tag/reader-v2.0.0', featured:true, theme:'peach'},
+  {id:'portfolio', title:'这个网站，本身也是作品', category:'PERSONAL WEBSITE', description:'用一个持续更新的空间，连接个人介绍、实践项目与学习记录。', tags:['React', 'Cloudflare Pages', 'D1 数据库'], url:'https://github.com/lingxiao001/lingxiao-course-portfolio', featured:false, theme:'lavender'},
+  {id:'focus-room', title:'专注一刻 · 学习计时器', category:'WEB APPLICATION', description:'设置专注时长，安排休息，给学习留出一段不被打扰的时间。', tags:['专注计时', '学习工具', '交互体验'], url:'https://lingxiao-focus-room.pages.dev', featured:false, theme:'mint'},
+  {id:'grade-planner', title:'学分有数 · 成绩目标规划', category:'WEB APPLICATION', description:'按课程学分和目标成绩，整理学习计划与成绩目标。', tags:['成绩计算', '目标规划', '学习工具'], url:'https://lingxiao-grade-planner.pages.dev', featured:false, theme:'lavender'}
+];

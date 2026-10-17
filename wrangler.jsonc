@@ -1,0 +1,7 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lingxiao-portfolio",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-10-01",
+  "d1_databases": [{"binding":"DB", "database_name":"lingxiao-portfolio", "database_id":"REPLACE_WITH_CREATED_D1_DATABASE_ID"}]
+}

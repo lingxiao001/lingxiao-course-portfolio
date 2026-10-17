@@ -1,0 +1,21 @@
+
+> lingxiao-portfolio@1.0.0 test
+> node --test tests/*.test.js
+
+✔ public profile and projects are initialized from D1 (9.744583ms)
+✔ unauthenticated and cross-origin writes are rejected (0.612042ms)
+✔ password verification is strict and session cookie is secure (24.774167ms)
+✔ profile update survives separate requests and rejects insecure links (9.466625ms)
+✔ project create, update and delete persist correctly (9.876958ms)
+✔ logout invalidates the server-side session (8.289958ms)
+✔ expired sessions are refused (8.3825ms)
+✔ repeated failed passwords are rate-limited (38.750542ms)
+✔ missing database and missing password configuration fail clearly (0.398041ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 154.701375
