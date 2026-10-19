@@ -63,3 +63,12 @@ npm run build:static
 本次 9 项 API / SQL / 权限测试全部通过。真实测试、构建及本地运行记录分别保存在 `verification-tests.txt`、`verification-build.txt`、`verification-static-build.txt`、`verification-runtime.txt`。
 
 重新初始化已有数据库时，`schema.sql` 使用 `CREATE IF NOT EXISTS` 和 `INSERT OR IGNORE`，避免覆盖已有个人资料。正式内容修改通过后台完成。
+
+## 6. 2026-10-19 界面升级发布
+
+- 动态官网已通过 Cloudflare Direct Upload 更新，部署地址：https://27ec486d.lingxiao-course-portfolio.pages.dev/ 。正式入口继续使用 https://lingxiao-course-portfolio.pages.dev/ 。
+- 课间工作台同步更新，部署地址：https://e745666c.lingxiao-study-workspace.pages.dev/ 。
+- 本次没有重建生产 D1、重置资料或更换管理员密码。正式后台已实际登录并保存新版首页主标题；独立公开请求确认内容持久化、5 个项目保留。成绩规划项目说明也已按实际功能修正。
+- 动态、静态两种构建及 9 项后端测试通过。桌面与 390px 手机界面已检查；配色与精选字段继续影响前台显示。
+- 静态版使用 main:/docs 发布，与当前前端源码同次提交。阅读器 V2.1 发布页为 https://github.com/lingxiao001/lingxiao-course-portfolio/releases/tag/reader-v2.1.0 。
+- 本轮最终截图和部署核验汇总保存在课程交付目录的“前端升级版-2026-10-19”，原版截图和记录保留供历史复核。

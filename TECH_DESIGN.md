@@ -1,6 +1,6 @@
 # Lingxiao 个人网站｜技术设计文档
 
-版本：1.0 · 2026-10-17
+版本：1.1 · 2026-10-19
 
 > `TECH_DESIN.md` 保留课程问卷中的文件名拼写；`TECH_DESIGN.md` 提供相同内容的标准拼写副本。
 
@@ -32,10 +32,21 @@ GitHub Pages 发布路径只包含前端静态资源。构建时 `VITE_STATIC_MO
 | 数据库 | Cloudflare D1 / SQLite | 云端持久化 |
 | 测试 | Node Test、内存 SQLite | 真实 SQL 与 API 行为验证 |
 
+### 前台视觉与交互
+
+公开页面使用深色底 `#101211`、浅色正文 `#edeee7` 与荧光绿 `#d4f572`。`Portfolio` 负责分区导航、作品筛选、分类数量和移动导航；`ProjectArt` 根据既有作品 ID 选择预览。当前筛选结果中的第一张卡片使用突出布局，后续卡片在桌面以两列展示，手机改为单列。后台保留浅色表单，资料和作品仍由原有 API 保存。
+
+轨道、字母装置和其他作品示意由 HTML/CSS 绘制，不新增图形运行时。`public/previews/workbench.png` 与 `reader.png` 是课间、拾页的真实运行截图，采用相对路径、延迟加载和替代文本；加载失败时隐藏截图，露出已有视觉预览。截图属于发布资产，未增加图片上传接口、数据库字段或图片存储绑定。既有 `featured` 与 `theme` 字段及后台编辑能力继续保留，首卡布局和截图选择由当前前端展示规则决定。
+
+`IntersectionObserver` 控制内容进入视口时的渐显，并更新当前分区导航；指针事件仅修改装置倾斜的 CSS 变量。样式针对 1100、800、550 像素等宽度调整布局，窄屏使用可展开导航。系统满足 `prefers-reduced-motion: reduce` 时，停用动画、过渡、平滑滚动与装置变换，渐显内容直接显示。
+
+键盘支持包含跳转作品列表的链接和可见焦点；筛选按钮使用 `aria-pressed`，导航按钮使用 `aria-expanded`，外链提供可读名称。后台保留错误提示、保存状态与禁用中的操作反馈。
+
 ## 3. 目录
 
 - `src/`：公开页面、内容管理和样式。
 - `src/data.js`：静态版初始公开资料。
+- `public/previews/`：随静态资源发布的项目真实运行截图。
 - `functions/api/[[path]].js`：Pages API 入口。
 - `server/api.js`：路由、登录、校验与数据库访问。
 - `schema.sql`：建表、索引与不覆盖现有内容的初始数据。
@@ -84,11 +95,13 @@ GitHub Pages 发布路径只包含前端静态资源。构建时 `VITE_STATIC_MO
 
 ### GitHub Pages
 
-执行 `npm ci`、`npm run build:static`。发布 `dist-static/`。Vite 基础路径使用 `./`，兼容 GitHub 仓库子路径。该版本通过修改源码并重新发布更新内容。
+执行 `npm ci`、`npm run build:static`。现有仓库使用 `main:/docs` 分支目录发布，将 `dist-static/` 内容同步到 `docs/` 并保留 `.nojekyll` 后提交推送。Vite 基础路径使用 `./`，项目截图也使用相对地址，兼容 GitHub 仓库子路径。该版本通过修改源码并重新发布更新内容。
 
 ### Cloudflare Pages
 
-执行 `npm run build`。建立 D1 并填入真实 database_id；初始化 `schema.sql`；配置 DB 绑定和 `ADMIN_PASSWORD_HASH`；通过 Wrangler 或 Git 连接发布。Pages Functions 源目录保持与构建产物同级。
+现有项目 `lingxiao-course-portfolio` 使用直接上传，生产分支为 `main`。执行 `npm run build` 后运行 `npx wrangler pages deploy dist --project-name lingxiao-course-portfolio --branch main`。保留 `wrangler.jsonc` 中现有 D1 绑定与生产 `ADMIN_PASSWORD_HASH`，界面更新不执行数据库初始化或密钥重设。Pages Functions 源目录保持与构建产物同级，由 Wrangler 一起编译。
+
+首次建立独立环境时才创建 D1、填入真实 database_id、执行 `schema.sql` 并配置 DB 与密码哈希；生产与预览环境分别使用对应绑定和密钥。数据库初始化使用不覆盖既有内容的语句，正式内容继续通过鉴权后台修改。
 
 ### 本地验证
 
@@ -98,4 +111,6 @@ GitHub Pages 发布路径只包含前端静态资源。构建时 `VITE_STATIC_MO
 
 `npm test` 使用内存 SQLite 执行真实 schema 与 SQL。覆盖公开读取、未授权访问、跨站写入拦截、密码校验、Cookie 属性、资料持久化、作品增删改、会话退出和过期、失败登录限流，以及缺失配置的处理。
 
-界面和部署截图由最终浏览器验收整理保存。每次发布后至少验证：公开 URL、登录、后台保存和前台刷新同步。
+界面验收包括桌面与手机布局、移动导航、分类数量与筛选、截图与项目链接、键盘焦点，以及减少动效模式下内容始终可见。截图须来自实际运行，预览资产不能替代本次功能验证。
+
+每次发布后至少验证：公开 URL、登录、后台保存和前台刷新同步，并通过独立公开请求确认持久化内容。界面与部署结果按实际操作整理留证，不以旧版截图作为新版验证结论。
